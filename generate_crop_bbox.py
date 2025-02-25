@@ -5,6 +5,7 @@ def read_image(img_name):
     if os.path.exists(img_name):
         img = cv2.imread(img_name)
         return img
+    print("No images")
     return None
 
 def read_bbox(gt_file, id, xxyy=False):
@@ -17,7 +18,7 @@ def read_bbox(gt_file, id, xxyy=False):
     with open(gt_file, 'r') as f:
         lines = f.read().splitlines()
         line  = [line for line in lines if line.split(',')[1] == id] # Extract the line of the object with id
-        
+
         # Extract the bbox of the object
         for l in line:
             bbox = l.split(',')[2:6]

@@ -4,6 +4,7 @@ import torch
 from extractor.ReID import ResNeXt50
 from generate_crop_bbox import read_bbox
 from utils import cosine_distance
+
 def extract_features(model, img, bbox):
     f = model.get_features(img, bbox)
     return f

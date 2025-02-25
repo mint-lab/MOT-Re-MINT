@@ -15,7 +15,6 @@ class ResNeXt50(object):
         self.model = torch.hub.load('pytorch/vision:v0.10.0', 'resnext50_32x4d', pretrained=True)
         self.model.eval().to(self.device)
         self.model = torch.nn.Sequential(*list(self.model.children())[:-1])
-
         self.input_shape = input_shape
     
     def extract_sub_image(self, img, bbox): #bbox -> [x1,y1,x2,y2] (x1, y1) top left, (x2, y2) bottom right in pixel coords
